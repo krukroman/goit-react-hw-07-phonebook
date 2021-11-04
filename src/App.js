@@ -1,5 +1,13 @@
-import PhonebookView from 'views/PhonebookView';
+import Header from 'components/Header';
+import ContactsEditor from 'components/ContactsEditor';
+import ContactsList from 'components/ContactsList';
 
 export default function App() {
-  return <PhonebookView />;
+  return (
+    <>
+      <Header />
+      <ContactsEditor />
+      <ContactsList />
+    </>
+  );
 }
