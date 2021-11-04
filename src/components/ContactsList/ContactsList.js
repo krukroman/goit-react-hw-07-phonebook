@@ -19,13 +19,12 @@ export default function ContactsList() {
           <ul className={s.list}>
             {contacts.map(({ id, name, number }) => {
               return (
-                <li key={id} className={s.item}>
-                  <Contact
-                    name={name}
-                    number={number}
-                    onDelete={() => onDeleteContact(id)}
-                  />
-                </li>
+                <Contact
+                  key={id}
+                  name={name}
+                  number={number}
+                  onDelete={() => onDeleteContact(id)}
+                />
               );
             })}
           </ul>
