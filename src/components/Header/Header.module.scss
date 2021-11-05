@@ -1,6 +1,10 @@
 .header {
   padding-block: 15px;
-  background-color: purple;
+  background: linear-gradient(
+    360deg,
+    rgba(155, 69, 223, 0.85) 0%,
+    #9b45df 100%
+  );
 }
 
 .container {
