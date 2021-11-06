@@ -1,24 +1,18 @@
+import Logo from 'components/Logo';
 import ContactsFilter from 'components/ContactsFilter';
+import UserInfo from 'components/UserInfo';
+import Button from 'components/Button';
 import s from './Header.module.scss';
 
 export default function Header() {
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <div className={s.title_wrapper}>
-          <p className={s.title}>Phonebook</p>
-        </div>
+        <Logo text="Phonebook" />
         <ContactsFilter />
-        <div className={s.btn_wrapper}>
-          <p className={s.user_mail}>user@mail.com</p>
-          <button
-            type="button"
-            className={s.login_btn}
-            disabled={true}
-            aria-label="for future login btn"
-          >
-            Exit
-          </button>
+        <div className={s.info_wrapper}>
+          <UserInfo mail="user@mail.com" />
+          <Button text="Exit" />
         </div>
       </div>
     </header>
