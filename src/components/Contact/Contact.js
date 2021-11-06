@@ -1,4 +1,3 @@
-import { MdDelete } from 'react-icons/md';
 import PropTypes from 'prop-types';
 import s from './Contact.module.scss';
 export default function Contact({ name, number, onDelete }) {
@@ -10,7 +9,9 @@ export default function Contact({ name, number, onDelete }) {
           <p className={s.number}>{number}</p>
         </div>
         <button className={s.btn} type="button" onClick={onDelete}>
-          <MdDelete />
+          <span className="material-icons-outlined">
+            <span class="material-icons-outlined">delete</span>
+          </span>
         </button>
       </div>
     </li>

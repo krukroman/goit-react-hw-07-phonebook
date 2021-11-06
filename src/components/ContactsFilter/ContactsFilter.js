@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsActions, contactsSelectors } from 'redux/contacts';
-import { BsSearch } from 'react-icons/bs';
 import s from './ContactsFilter.module.scss';
 export default function Filter() {
   const contacts = useSelector(contactsSelectors.getContacts);
@@ -10,12 +9,14 @@ export default function Filter() {
   return (
     <div className={s.wrapper}>
       <div className={s.container}>
-        <BsSearch className={s.icon_search} />
+        <span className={`material-icons-outlined ${s.icon_search}`}>
+          search
+        </span>
         <input
           className={s.input}
           type="text"
           value={value}
-          autoComplete="false"
+          autoComplete="off"
           autoFocus
           onChange={e => dispatch(contactsActions.changeFilter(e.target.value))}
           placeholder={`Contacts: ${contacts.length}`}
