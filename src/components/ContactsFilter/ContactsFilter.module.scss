@@ -1,19 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .container {
   display: flex;
   align-items: center;
 
-  padding: 8px 16px;
+  padding: 0.5rem 1.5rem;
 
-  width: 700px;
+  width: 100%;
+  max-width: 50rem;
 
   background-color: #fff;
-  border: 1px solid purple;
   border-radius: 8px;
 }
 
 .icon_search {
-  margin-right: 8px;
-  font-size: 24px;
+  margin-right: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .input {
@@ -21,9 +28,14 @@
 
   width: 100%;
 
-  font-size: 24px;
+  font-size: 1.8rem;
   line-height: 1;
+  letter-spacing: 0.01rem;
 
   border: none;
   outline: none;
+
+  &::placeholder {
+    color: #939393;
+  }
 }

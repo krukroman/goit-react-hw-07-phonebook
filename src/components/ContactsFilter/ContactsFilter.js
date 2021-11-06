@@ -8,17 +8,19 @@ export default function Filter() {
   const value = useSelector(getFilter);
   const dispatch = useDispatch();
   return (
-    <div className={s.container}>
-      <BsSearch className={s.icon_search} />
-      <input
-        className={s.input}
-        type="text"
-        value={value}
-        autoComplete="false"
-        autoFocus
-        onChange={e => dispatch(contactsActions.changeFilter(e.target.value))}
-        placeholder={`Contacts: ${contacts.length}`}
-      />
+    <div className={s.wrapper}>
+      <div className={s.container}>
+        <BsSearch className={s.icon_search} />
+        <input
+          className={s.input}
+          type="text"
+          value={value}
+          autoComplete="false"
+          autoFocus
+          onChange={e => dispatch(contactsActions.changeFilter(e.target.value))}
+          placeholder={`Contacts: ${contacts.length}`}
+        />
+      </div>
     </div>
   );
 }

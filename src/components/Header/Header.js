@@ -5,15 +5,21 @@ export default function Header() {
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <p className={s.title}>Phonebook</p>
+        <div className={s.title_wrapper}>
+          <p className={s.title}>Phonebook</p>
+        </div>
         <ContactsFilter />
-        <button
-          type="button"
-          className={s.login_btn}
-          aria-label="for future login btn"
-        >
-          Login
-        </button>
+        <div className={s.btn_wrapper}>
+          <p className={s.user_mail}>user@mail.com</p>
+          <button
+            type="button"
+            className={s.login_btn}
+            disabled={true}
+            aria-label="for future login btn"
+          >
+            Exit
+          </button>
+        </div>
       </div>
     </header>
   );
