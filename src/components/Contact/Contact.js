@@ -10,7 +10,7 @@ export default function Contact({ name, number, onDelete }) {
         </div>
         <button className={s.btn} type="button" onClick={onDelete}>
           <span className="material-icons-outlined">
-            <span class="material-icons-outlined">delete</span>
+            <span className="material-icons-outlined">delete</span>
           </span>
         </button>
       </div>
