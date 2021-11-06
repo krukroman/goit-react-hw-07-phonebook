@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
-import contactsActions from './contacts-actions';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
+import { contactsActions } from 'redux/contacts';
 
 import isContactExist from 'functions/isContactExists';
 

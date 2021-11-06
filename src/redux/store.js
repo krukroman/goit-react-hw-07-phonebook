@@ -13,7 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { contactsReducer } from './contacts';
+import { contactsReducers } from './contacts';
 
 const contactsPersistConfig = {
   key: 'contacts',
@@ -27,7 +27,7 @@ const serializableMiddleware = createSerializableStateInvariantMiddleware({
 
 export const store = configureStore({
   reducer: {
-    contacts: persistReducer(contactsPersistConfig, contactsReducer),
+    contacts: persistReducer(contactsPersistConfig, contactsReducers),
   },
   middleware: [serializableMiddleware],
   devTools: process.env.NODE_ENV === 'development',
