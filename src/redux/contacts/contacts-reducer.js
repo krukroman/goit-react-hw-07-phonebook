@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import contactsActions from './contacts-actions';
 
-import isContactExist from 'components/functions/isContactExists';
+import isContactExist from 'functions/isContactExists';
 
 const items = createReducer([], {
   [contactsActions.addContact]: (state, { payload }) => {
