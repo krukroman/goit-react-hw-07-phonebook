@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts, getFilter } from 'redux/contacts/contacts-selectors';
-import contactsActions from 'redux/contacts/contacts-actions';
+import { contactsActions, contactsSelectors } from 'redux/contacts';
 import { BsSearch } from 'react-icons/bs';
 import s from './ContactsFilter.module.scss';
 export default function Filter() {
-  const contacts = useSelector(getContacts);
-  const value = useSelector(getFilter);
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const value = useSelector(contactsSelectors.getFilter);
   const dispatch = useDispatch();
+
   return (
     <div className={s.wrapper}>
       <div className={s.container}>

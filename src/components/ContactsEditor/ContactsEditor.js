@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import contactsActions from 'redux/contacts/contacts-actions';
+import { contactsActions } from 'redux/contacts';
 
 import s from './ContactsEditor.module.scss';
 

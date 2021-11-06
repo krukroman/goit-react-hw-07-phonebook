@@ -1,16 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContacts } from 'redux/contacts/contacts-selectors';
-import contactsActions from 'redux/contacts/contacts-actions';
+import { contactsActions, contactsSelectors } from 'redux/contacts';
+
 import Contact from '../Contact';
 
 import s from './ContactsList.module.scss';
 
 export default function ContactsList() {
-  const contacts = useSelector(getVisibleContacts);
+  const contacts = useSelector(contactsSelectors.getVisibleContacts);
 
   const dispatch = useDispatch();
 
   const onDeleteContact = id => dispatch(contactsActions.deleteContact(id));
+
   return (
     <section className={s.section}>
       <div className={s.container}>
