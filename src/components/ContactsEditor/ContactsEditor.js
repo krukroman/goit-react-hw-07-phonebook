@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { contactsSelectors, contactsOperations } from 'redux/contacts';
-
+import { useAddContactMutation } from 'redux/contacts/contactsApi';
 import isContactExist from 'functions/isContactExists';
 
+import PropTypes from 'prop-types';
 import s from './ContactsEditor.module.scss';
 
-export default function ContactsEditor() {
+export default function ContactsEditor({ contacts }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(contactsSelectors.getContacts);
-  const dispatch = useDispatch();
+  const [addContact] = useAddContactMutation();
 
   const inputNameId = nanoid();
   const inputNumberId = nanoid();
@@ -33,18 +31,15 @@ export default function ContactsEditor() {
   const handleSubmit = e => {
     e.preventDefault();
     if (isContactExist(contacts, name)) {
-      alert(`Contact with name ${name} allready exists`);
+      alert(`Contact with name ${name} allready exist`);
       setName('');
       setNumber('');
       return;
     }
-
-    dispatch(
-      contactsOperations.addContact({
-        name,
-        number,
-      }),
-    );
+    addContact({
+      name,
+      number,
+    });
     setName('');
     setNumber('');
   };
@@ -87,3 +82,13 @@ export default function ContactsEditor() {
     </div>
   );
 }
+
+ContactsEditor.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }).isRequired,
+  ),
+};
