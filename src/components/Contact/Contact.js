@@ -14,15 +14,22 @@ export default function Contact({ id, name, number }) {
           <p className={s.name}>{name}</p>
           <p className={s.number}>{number}</p>
         </div>
-        <button
-          className={s.btn}
-          type="button"
-          onClick={() => onDeleteContact(id)}
-        >
-          <span className="material-icons-outlined">
+        <div className={s.btn_wrapper}>
+          <button
+            className={`${s.btn}, ${s.btn_edit}`}
+            type="button"
+            disabled="disabled"
+          >
+            <span className="material-icons-outlined">edit</span>
+          </button>
+          <button
+            className={`${s.btn}, ${s.btn_delete}`}
+            type="button"
+            onClick={() => onDeleteContact(id)}
+          >
             <span className="material-icons-outlined">delete</span>
-          </span>
-        </button>
+          </button>
+        </div>
       </div>
     </li>
   );

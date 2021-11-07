@@ -1,5 +1,5 @@
 .section {
-  padding-block: 20px;
+  padding-block: 2rem;
 }
 
 .container {
@@ -10,23 +10,30 @@
   width: 100%;
 
   margin-inline: auto;
-  padding-inline: 15px;
+  padding-inline: 1.5rem;
 }
 
 .title {
-  font-size: 36px;
+  font-size: 3.6rem;
 }
 
 .list {
-  margin-top: 20px;
-  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-gap: 1rem;
+
+  margin-top: 2rem;
+
+  width: 100%;
 }
 
 .status {
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 20px;
-  width: 500px;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  width: 50rem;
+
+  font-size: 2rem;
   border: 1px solid #e9e9e9;
   border-radius: 5px;
 }

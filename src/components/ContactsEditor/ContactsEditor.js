@@ -37,12 +37,7 @@ export default function ContactsEditor() {
   const handleSubmit = e => {
     e.preventDefault();
     if (isContactExist(contacts, name)) {
-      dispatch(
-        contactsActions.addContactError({
-          message: 'Contact exists',
-          stack: `Contact with name ${name} allready exists`,
-        }),
-      );
+      alert(`Contact with name ${name} allready exists`);
       setName('');
       setNumber('');
       return;
