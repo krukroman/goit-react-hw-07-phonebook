@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { contactsActions, contactsSelectors } from 'redux/contacts';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
 
 import Contact from '../Contact';
 
@@ -10,7 +10,7 @@ export default function ContactsList() {
 
   const dispatch = useDispatch();
 
-  const onDeleteContact = id => dispatch(contactsActions.deleteContact(id));
+  const onDeleteContact = id => dispatch(contactsOperations.deleteContact(id));
 
   return (
     <section className={s.section}>
@@ -24,7 +24,7 @@ export default function ContactsList() {
                   key={id}
                   name={name}
                   number={number}
-                  onDelete={() => onDeleteContact(id)}
+                  onDelete={() => onDeleteContact(Number(id))}
                 />
               );
             })}

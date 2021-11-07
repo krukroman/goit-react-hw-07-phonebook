@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { contactsActions } from 'redux/contacts';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
+import isContactExist from 'functions/isContactExists';
 
 import s from './ContactsEditor.module.scss';
 
 export default function ContactsEditor() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(contactsSelectors.getContacts);
   const dispatch = useDispatch();
 
   const inputNameId = nanoid();
@@ -29,7 +31,14 @@ export default function ContactsEditor() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(contactsActions.addContact(name, number));
+    if (isContactExist(contacts, name)) {
+      alert(`Contact with name ${name} allready exists`);
+      setName('');
+      setNumber('');
+      return;
+    }
+
+    dispatch(contactsOperations.addContact(name, number));
     setName('');
     setNumber('');
   };
