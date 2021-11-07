@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { contactsActions } from 'redux/contacts';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://6187e890057b9b00177f9b0c.mockapi.io/api/v1/';
 
 const fetchContacts = () => dispatch => {
   dispatch(contactsActions.fetchContactsRequest());
