@@ -1,23 +1,30 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { contactsOperations } from 'redux/contacts';
-
+import { useSelector } from 'react-redux';
 import Header from 'components/Header';
 import ContactsEditor from 'components/ContactsEditor';
 import ContactsList from 'components/ContactsList';
+import { contactsApi, contactsSelectors } from 'redux/contacts';
 
 export default function ContactsPage() {
-  const dispatch = useDispatch();
+  const { data: contacts } = contactsApi.useFetchContactsQuery();
+  const filterValue = useSelector(
+    contactsSelectors.getFilter,
+  ).toLocaleLowerCase();
 
-  useEffect(() => {
-    dispatch(contactsOperations.fetchContacts());
-  }, [dispatch]);
+  const getVisibleContacts = (contacts, filterValue) => {
+    return [...contacts]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .filter(contact =>
+        contact.name.toLocaleLowerCase().includes(filterValue),
+      );
+  };
 
   return (
     <>
-      <Header />
-      <ContactsEditor />
-      <ContactsList />
+      <Header contactsCount={contacts ? contacts.length : 0} />
+      <ContactsEditor contacts={contacts} />
+      {contacts && (
+        <ContactsList contacts={getVisibleContacts(contacts, filterValue)} />
+      )}
     </>
   );
 }

@@ -1,18 +1,14 @@
-import { useSelector } from 'react-redux';
-import { contactsSelectors } from 'redux/contacts';
-
 import Contact from '../Contact';
-
+import PropTypes from 'prop-types';
 import s from './ContactsList.module.scss';
 
-export default function ContactsList() {
-  const contacts = useSelector(contactsSelectors.getVisibleContacts);
-
+export default function ContactsList({ contacts }) {
+  const isDataRecived = contacts && contacts.length > 0;
   return (
     <section className={s.section}>
       <div className={s.container}>
         <h2 className={s.title}>Contacts</h2>
-        {contacts.length !== 0 ? (
+        {isDataRecived ? (
           <ul className={s.list}>
             {contacts.map(({ id, name, number }) => {
               return <Contact key={id} id={id} name={name} number={number} />;
@@ -28,3 +24,13 @@ export default function ContactsList() {
     </section>
   );
 }
+
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }).isRequired,
+  ),
+};
