@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
-import {
-  contactsActions,
-  contactsSelectors,
-  contactsOperations,
-} from 'redux/contacts';
+import { contactsSelectors, contactsOperations } from 'redux/contacts';
 
 import isContactExist from 'functions/isContactExists';
 
