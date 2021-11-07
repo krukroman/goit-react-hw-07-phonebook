@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import {
   contactsActions,
-  contactsOperations,
   contactsSelectors,
+  contactsOperations,
 } from 'redux/contacts';
+
 import isContactExist from 'functions/isContactExists';
 
 import s from './ContactsEditor.module.scss';
@@ -47,7 +48,12 @@ export default function ContactsEditor() {
       return;
     }
 
-    dispatch(contactsOperations.addContact(name, number));
+    dispatch(
+      contactsOperations.addContact({
+        name,
+        number,
+      }),
+    );
     setName('');
     setNumber('');
   };
