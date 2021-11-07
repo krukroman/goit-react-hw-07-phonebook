@@ -15,7 +15,14 @@ const filter = createReducer('', {
   [contactsActions.changeFilter]: (_, { payload }) => payload,
 });
 
-const error = createReducer(null, {});
+const error = createReducer(null, {
+  [contactsActions.fetchContactsError]: (_, { payload }) => payload,
+  [contactsActions.addContactError]: (_, { payload }) => payload,
+  [contactsActions.deleteContactError]: (_, { payload }) => payload,
+  [contactsActions.fetchContactsRequest]: () => null,
+  [contactsActions.addContactRequest]: () => null,
+  [contactsActions.deleteContactRequest]: () => null,
+});
 
 export default combineReducers({
   items,

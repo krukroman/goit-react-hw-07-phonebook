@@ -7,7 +7,9 @@ const fetchContacts = () => dispatch => {
   dispatch(contactsActions.fetchContactsRequest());
   axios
     .get('/contacts')
-    .then(({ data }) => dispatch(contactsActions.fetchContactsSuccess(data)))
+    .then(({ data }) => {
+      dispatch(contactsActions.fetchContactsSuccess(data));
+    })
     .catch(error => dispatch(contactsActions.fetchContactsError(error)));
 };
 
@@ -21,7 +23,9 @@ const addContact = (name, number) => dispatch => {
 
   axios
     .post('/contacts', contact)
-    .then(({ data }) => dispatch(contactsActions.addContactSuccess(data)))
+    .then(({ data }) => {
+      dispatch(contactsActions.addContactSuccess(data));
+    })
     .catch(error => dispatch(contactsActions.addContactError(error)));
 };
 
@@ -30,7 +34,9 @@ const deleteContact = contactId => dispatch => {
 
   axios
     .delete(`/contacts/${contactId}`)
-    .then(() => dispatch(contactsActions.deleteContactSuccess(contactId)))
+    .then(() => {
+      dispatch(contactsActions.deleteContactSuccess(contactId));
+    })
     .catch(error => dispatch(contactsActions.deleteContactError(error)));
 };
 
