@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useAddContactMutation } from 'redux/contacts/contactsApi';
+import { contactsApi } from 'redux/contacts';
 import isContactExist from 'functions/isContactExists';
 
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import s from './ContactsEditor.module.scss';
 export default function ContactsEditor({ contacts }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [addContact] = useAddContactMutation();
+  const [addContact] = contactsApi.useAddContactMutation();
 
   const inputNameId = nanoid();
   const inputNumberId = nanoid();

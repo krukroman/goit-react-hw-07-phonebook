@@ -34,6 +34,3 @@ export const {
   useAddContactMutation,
   useDeleteContactMutation,
 } = contactsApi;
-export function middleware(middleware) {
-  throw new Error('Function not implemented.');
-}

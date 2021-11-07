@@ -1,9 +1,10 @@
-import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
+import { contactsApi } from 'redux/contacts';
 
 import PropTypes from 'prop-types';
 import s from './Contact.module.scss';
 export default function Contact({ id, name, number }) {
-  const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
+  const [deleteContact, { isLoading: isDeleting }] =
+    contactsApi.useDeleteContactMutation();
 
   return (
     <li className={s.item}>

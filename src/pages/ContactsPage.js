@@ -2,11 +2,10 @@ import { useSelector } from 'react-redux';
 import Header from 'components/Header';
 import ContactsEditor from 'components/ContactsEditor';
 import ContactsList from 'components/ContactsList';
-import { useFetchContactsQuery } from 'redux/contacts/contactsApi';
-import { contactsSelectors } from 'redux/contacts';
+import { contactsApi, contactsSelectors } from 'redux/contacts';
 
 export default function ContactsPage() {
-  const { data: contacts } = useFetchContactsQuery();
+  const { data: contacts } = contactsApi.useFetchContactsQuery();
   const filterValue = useSelector(
     contactsSelectors.getFilter,
   ).toLocaleLowerCase();
